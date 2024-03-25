@@ -32,7 +32,7 @@ int main() {
 	float* vec2 = (float*)malloc(sizeof(float) * n);
 	*/
 
-	int n = 1 << 29;
+	int n = 1 << 24;
 	float* vec1 = (float*)malloc(sizeof(float) * n);
 	float* vec2 = (float*)malloc(sizeof(float) * n);
 
@@ -46,8 +46,8 @@ int main() {
 
 	// Initializing the vectors with random float values between -10.0 and +10.0
 	for (int i = 0; i < n; i++) {
-		vec1[i] = (float)rand() / (RAND_MAX / 20.0f) - 10.0f;
-		vec2[i] = (float)rand() / (RAND_MAX / 20.0f) - 10.0f;
+		vec1[i] = (float)rand() / (RAND_MAX / 20.0) - 10.0;
+		vec2[i] = (float)rand() / (RAND_MAX / 20.0) - 10.0;
 	}
 
 	// Timing the Assembly kernel
@@ -67,14 +67,16 @@ int main() {
 	printf("Answer of Assembly is: %f\n", sdot_asm);
 	printf("Time taken by Assembly: %f seconds\n", time_asm);
 	printf("Answer of C is: %f\n", sdot_c);
-	printf("Time taken by C: %f seconds\n", time_c);
+	printf("Time taken by C: %f seconds\n\n", time_c);
 
-	//Correctness check
+	// Correctness check
 	if (sdot_asm == sdot_c) {
-		printf("the x86-64 kernel output is correct!");
+		printf("The x86-64 kernel output is correct!\n");
+		printf("The C kernel output is correct!\n");
 	}
 	else {
-		printf("the x86-64 kernel output is incorrect!");
+		printf("The x86-64 kernel output is incorrect!\n");
+		printf("The C kernel output is incorrect!\n");
 	}
 
 	// Free allocated memory
