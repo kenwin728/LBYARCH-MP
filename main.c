@@ -69,6 +69,14 @@ int main() {
 	printf("Answer of C is: %f\n", sdot_c);
 	printf("Time taken by C: %f seconds\n", time_c);
 
+	//Correctness check
+	if (sdot_asm == sdot_c) {
+		printf("the x86-64 kernel output is correct!");
+	}
+	else {
+		printf("the x86-64 kernel output is incorrect!");
+	}
+
 	// Free allocated memory
 	free(vec1);
 	free(vec2);
